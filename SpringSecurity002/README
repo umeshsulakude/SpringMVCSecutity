@@ -1,0 +1,23 @@
+Spring Security Notes: 
+my refference 002
+
+1> Before we create we need to know.
+UserDetails is Interface and User is class implemented this interface and overridden few of its methods.
+2>GrantedAuthority interface and SimpleGrantedAuthority is the class which implemented this interface.
+3> In SecurityAppConfig if you observe methos setups we have hard coded username and password.
+4> USerDetailsManager is interface there are two class implement it below are the classes
+InMemoUserDetailsManager and JdbcUserDetailsManager.
+
+5> First try with inmemoryuserdetails as example :
+see the class SecurityAppCofnig for the method -> setup()
+if you run this you ll get below error that password must be encrypted.
+java.lang.IllegalArgumentException: There is no PasswordEncoder mapped for the id "null"
+
+6> To remove this you need to encrypted password or their is quick fix you can using NoOpPasswordEncoder class.
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
+
+7> Now run the app and Add username and passwords. you should login.
+8> next project is to run the same app with JdbcUserDetailsManager
