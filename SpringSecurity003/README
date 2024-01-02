@@ -1,0 +1,12 @@
+Spring Security Notes: 
+my refference 003
+
+
+1> read about user class and userdetails interface
+2> UserBuilder class which is inner class of user. read about this
+
+3 > Compare the commented lines and new code written in securityAppConfig.
+ We can directly use USer class which is provided by Spring. Instead of creating grantauthority interface and setting it to inmemomoryuserdetailsmanager class.
+
+
+
