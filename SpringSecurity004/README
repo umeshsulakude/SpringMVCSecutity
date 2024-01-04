@@ -1,0 +1,29 @@
+Spring Security Notes: 
+my refference 004
+
+1> Read about how easily we can create user using user class and userdetails as interface.
+2> set up that user using InMemoryUserDetailsManager /jdbc/ ldap
+3> @EnableWebSecurity ->  This will enable the SecurityFilterChain by default. so u can override and writte ur custom methods as well.
+examoles in securityappconfig we have written custom method. setUpSpringSecurity()
+4> so if you written custom  method make sure you have provided proper authentication/permitall to your required urls.
+5> And then you can add required filterchain
+examples :
+httpSecurity.formLogin();
+httpSecurity.httpBasic();
+
+6> read about authenticated  vs permitall() vs dennyall methods in securityappconfig class
+httpSecurity.authorizeHttpRequests().anyRequest().authenticated();
+httpSecurity.authorizeHttpRequests().anyRequest().permitAll();
+httpSecurity.authorizeHttpRequests().anyRequest().denyAll();
+
+7> Next thing we can explose is based on roles we can give permission to access to those URls.
+Examples : hi can be access only admin and bye can be access by admin and guest
+code :
+       httpSecurity.authorizeHttpRequests().requestMatchers("/bye").hasAnyRole("guest","admin");
+        httpSecurity.authorizeHttpRequests().requestMatchers("/hi").hasRole("admin");
+
+
+
+
+
+
